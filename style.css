@@ -1,0 +1,122 @@
+* {
+	box-sizing: border-box;
+}
+:root {
+	--bg: #faf9fe;
+	--color: black;
+	--bottom-bar-bg: #eae9ee;
+	--bottom-bar-main-button-bg: #223e99;
+	--bottom-bar-main-button-color: white;
+	--button-bg: #9e9ea4;
+	--top-bar-bg: #eae9ee7f;
+	--progressbar-color: black;
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #010013;
+		--color: white;
+		--bottom-bar-bg: #111123;
+		--bottom-bar-main-button-bg: #8093d1;
+		--bottom-bar-main-button-color: black;
+		--button-bg: #323244;
+		--top-bar-bg: #1111237f;
+		--progressbar-color: white;
+	}
+}
+body {
+	background: var(--bg);
+	color: var(--color);
+	margin: 0;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-family: "Inter", Sans-Serif;
+	text-align: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+.bottom-bar {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	position: fixed;
+	bottom: 15px;
+	left: 50%;
+	translate: -50%;
+	background: var(--bottom-bar-bg);
+	width: clamp(250px, 90vw, 600px);
+	height: auto;
+	border: 1px solid #fff1;
+	border-radius: 20px;
+	backdrop-filter: blur(10px);
+	padding: 12px;
+	box-shadow: 2px 2px 6px #0003;
+	transition: all 200ms ease;
+
+	button {
+		display: inline-block;
+		width: 60px;
+		height: 60px;
+		border: none;
+		border-radius: 50px;
+		background: var(--button-bg);
+		flex-shrink: 0;
+		transition:
+			scale 175ms ease,
+			filter 200ms ease;
+	}
+	button:active {
+		filter: brightness(0.8);
+		scale: 0.8;
+	}
+
+	button.main {
+		background: var(--bottom-bar-main-button-bg);
+		width: 80px;
+		height: 80px;
+		color: var(--bottom-bar-main-button-color);
+		font-size: 4em;
+		justify-content: center;
+		align-content: center;
+		align-items: center;
+	}
+}
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	padding: 12px;
+	background: var(--top-bar-bg);
+	font-size: 1.5em;
+	text-align: center;
+	align-items: center;
+	backdrop-filter: blur(5px);
+}
+.progressbar-bar {
+	width: 300px;
+	height: 30px;
+	border: 1.5px solid var(--progressbar-color);
+	border-radius: 20px;
+	overflow: hidden;
+}
+.progressbar-progress {
+	width: 50%;
+	height: 30px;
+	background: var(--progressbar-color);
+	border-radius: 0;
+	transition: width 100ms ease;
+}
+.progressbar-bar.unfocus, .progressbar-progress.unfocus {
+	opacity: 0.5;
+}
+.timer {
+	font-size: 1.75em;
+	margin: 12px;
+}

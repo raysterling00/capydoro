@@ -18,61 +18,6 @@ $qa(".progressbar-progress").forEach((allProgresses) => {
 })
 
 let pomodoroInterval001
-/*$i("nav-main").onclick = () => {
-	if (is_runnin) {
-		clearInterval(pomodoroInterval001)
-		is_runnin = false
-		$i("nav-main").textContent = "+"
-	} else {
-		is_runnin = true
-		$i("nav-main").textContent = "||"
-
-		$qa(".timer").forEach((el) => {
-			el.textContent = `${timer_minutes.toString().padStart(2, "0")}:${timer_seconds.toString().padStart(2, "0")}`
-		})
-
-		pomodoroInterval001 = setInterval(() => {
-			leftoverTime -= 1
-			progress = ((timer_minutes_unformat - leftoverTime) / timer_minutes_unformat) * 100
-			console.log(progress)
-			$qa(".progressbar-progress").forEach((allProgresses) => {
-				allProgresses.style.width = `${progress}%`
-
-				if (progress >= 100) {
-					clearInterval(pomodoroInterval001)
-				}
-			})
-
-			timer_seconds -= 1
-			if (timer_seconds < 0) {
-				timer_minutes -= 1
-				timer_seconds = 59
-			}
-			if (timer_minutes < 0) {
-				clearInterval(pomodoroInterval001)
-				timer_minutes = 0
-				timer_seconds = 0
-			}
-			$qa(".timer").forEach((el) => {
-				el.textContent = `${timer_minutes.toString().padStart(2, "0")}:${timer_seconds.toString().padStart(2, "0")}`
-			})
-		}, 1000)
-
-		if (leftoverTime <= 0) {
-			$qa(".progressbar-progress").forEach((allProgresses) => {
-				allProgresses.style.width = `0%`
-			})
-			progress = 0
-			clearInterval(pomodoroInterval001)
-			timer_minutes = config_minutes
-			timer_minutes_unformat = timer_minutes * 60
-			leftoverTime = timer_minutes_unformat
-			timer_seconds = 0
-		}
-	}
-}
-*/
-
 $i("nav-main").onclick = () => {
 	if (is_runnin) {
 		clearInterval(pomodoroInterval001)
